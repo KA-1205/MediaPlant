@@ -1,0 +1,12 @@
+__pycache__/
+*.pyc
+*.pth
+*.pt
+*.zip
+data/
+outputs/checkpoints/
+outputs/logs/
+.env
+wandb/
+.DS_Store
+.mpvenv
