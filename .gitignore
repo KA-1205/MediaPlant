@@ -3,10 +3,13 @@ __pycache__/
 *.pth
 *.pt
 *.zip
-data/
+data/processed
+data/raw
+data/splits
 outputs/checkpoints/
 outputs/logs/
 .env
 wandb/
 .DS_Store
 .mpvenv
+README.md
