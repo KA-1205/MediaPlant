@@ -1,0 +1,16 @@
+__pycache__/
+*.pyc
+*.pth
+*.pt
+*.zip
+data/
+outputs/checkpoints/
+outputs/logs/
+outputs/results/
+outputs/inference/
+.env
+wandb/
+.DS_Store
+.mpvenv/
+venv/
+mp.venv

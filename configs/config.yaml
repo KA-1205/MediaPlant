@@ -1,0 +1,50 @@
+project:
+  name: mediaplant-ai
+  seed: 42
+
+data:
+  dataset_path: data/processed/
+  splits_path: data/splits/
+  num_classes: 80
+  image_size: 224
+  batch_size: 8
+  num_workers: 4
+  train_split: 0.70
+  val_split: 0.15
+  test_split: 0.15
+
+swin:
+  model_name: swin_tiny_patch4_window7_224
+  pretrained: true
+  dropout: 0.3
+  learning_rate: 0.0001
+  weight_decay: 0.01
+  epochs: 30
+  scheduler: cosine
+
+convnext:
+  model_name: convnext_tiny
+  pretrained: true
+  dropout: 0.3
+  learning_rate: 0.0001
+  weight_decay: 0.01
+  epochs: 30
+  scheduler: cosine
+
+ensemble:
+  strategy: weighted_avg
+  meta_hidden_dim: 256
+
+training:
+  device: cuda
+  amp: true
+  save_best_only: true
+  checkpoint_dir: outputs/checkpoints/
+  log_dir: outputs/logs/
+  grad_accum_steps: 4
+  early_stopping_patience: 5
+
+# ── Final Evaluation Results (April 2026) ─────────────────────────────────
+# Best Production Strategy: Simple Average = 98.16% (Original Base Models)
+# Research Strategy: Learned Stacking (OOF) = 97.87% (Leakage resolved)
+# Original Swin test: 98.07% | Original ConvNeXt test: 96.91%
